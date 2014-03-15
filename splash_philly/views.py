@@ -119,6 +119,21 @@ class AddPlacesToDatabaseView(TemplateView):
         location='Philadelphia, PA', keyword='Pool',
         radius=20000)
         for place in query_result.places:
+            next_result = google_places.nearby_search(
+                location=place.vicinity, keyword='Pool',
+                radius=20000)
+            for place2 in next_result.places:
+                pool2  = Pool.objects.create()
+                pool2.name = place2.name
+                pool2.address = place2.vicinity +" , USA" #Add this to make it work with our map db (?not sure if we need this)
+                pool2.geolocation.lat = place2.geo_location['lat']
+                pool2.geolocation.lon= place2.geo_location['lng']
+                #I have no idea what I am doing! --MG
+                if place2.rating is None:
+                    pool2.rating = 0.0
+                else:
+                    pool2.rating = float(place2.rating)
+                pool2.save()
             pool = Pool.objects.create()
             pool.name = place.name
             pool.address = place.vicinity +" , USA" #Add this to make it work with our map db (?not sure if we need this)

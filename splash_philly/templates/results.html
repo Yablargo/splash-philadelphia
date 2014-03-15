@@ -105,6 +105,7 @@ Pool Search Results
 <h3>Pools</h3>
     <table class="table">
     <thead><tr>
+        <td>Directions</td>
         <td>Rating</td>
         <td>Name</td>
         <td>Address</td>
@@ -113,6 +114,7 @@ Pool Search Results
     <tbody>
 {% for pool in object_list %}
     <tr>
+    <td><a href="http://maps.google.com/maps?saddr=current+location&daddr={{ pool.address }}">Get Directions</a></td>
         <td>
             <!-- Great pure CSS/font implementation @  http://codepen.io/socialblogsite/pen/diBjD -->
             <span class="seostars">
