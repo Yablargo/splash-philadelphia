@@ -15,7 +15,7 @@ urlpatterns = patterns('',
     url(r'^about/$', views.AboutView.as_view(), name='about'),
     url(r'^places/$', views.PlacesView.as_view(), name='places'),
     url(r'^add_places/$', views.AddPlacesToDatabaseView.as_view(), name='places_add'),
-
+    url(r'^search/$', views.SearchView.as_view(), name='search'),
     url(r'^map$', views.MapView.as_view(),name='map'),
 )
 

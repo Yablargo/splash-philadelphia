@@ -18,8 +18,11 @@ class Pool(models.Model):
         return "%s at %s" % (self.name,  self.address)
 
 
+"""
+Commented out for now. Keeping our model simple as possible
 class Comment(models.Model):
     submitter = models.CharField(max_length=80)
-    text =  models.CharField(max_length=400)
+    text = models.CharField(max_length=400)
     posted = models.DateField()
     pool = models.ForeignKey(Pool,related_name='comments')
+"""
