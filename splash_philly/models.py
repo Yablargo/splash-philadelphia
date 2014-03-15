@@ -17,9 +17,3 @@ class Pool(models.Model):
     def __str__(self):
         return "%s at %s" % (self.name,  self.address)
 
-
-class Comment(models.Model):
-    submitter = models.CharField(max_length=80)
-    text =  models.CharField(max_length=400)
-    posted = models.DateField()
-    pool = models.ForeignKey(Pool,related_name='comments')
